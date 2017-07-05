@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CloudMQTT.Client</id>
+    <version>1.0.0</version>
+    <title>CloudMQTT.Client</title>
+    <authors>Daniel James</authors>
+    <owners>Daniel James</owners>
+    <licenseUrl>https://github.com/thzinc/CloudMQTT/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/thzinc/CloudMQTT</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Library to interact with the CloudMQTT management API</description>
+    <copyright>Copyright 2017</copyright>
+  </metadata>
+  <files>
+    <file src="bin/$configuration$/net46/CloudMQTT.Client.dll" target="lib/net46" />
+    <file src="bin/$configuration$/net46/CloudMQTT.Client.pdb" target="lib/net46" />
+    <file src="bin/$configuration$/netstandard1.1/CloudMQTT.Client.dll" target="lib/netstandard1.1" />
+    <file src="bin/$configuration$/netstandard1.1/CloudMQTT.Client.pdb" target="lib/netstandard1.1" />
+  </files>
+  <dependencies>
+    <dependency id="RestEase" version="1.4.1" />
+  </dependencies>
+</package>
