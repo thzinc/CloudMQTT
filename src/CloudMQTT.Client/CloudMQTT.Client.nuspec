@@ -11,14 +11,19 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Library to interact with the CloudMQTT management API</description>
     <copyright>Copyright 2017</copyright>
+    <dependencies>
+      <group>
+        <dependency id="RestEase" version="1.4.1" />
+      </group>
+      <group targetFramework=".NETFramework4.6">
+        <dependency id="System.Net.Http" version="4.3.2" />
+      </group>
+    </dependencies>
   </metadata>
   <files>
-    <file src="bin/$configuration$/net46/CloudMQTT.Client.dll" target="lib/net46" />
-    <file src="bin/$configuration$/net46/CloudMQTT.Client.pdb" target="lib/net46" />
-    <file src="bin/$configuration$/netstandard1.1/CloudMQTT.Client.dll" target="lib/netstandard1.1" />
-    <file src="bin/$configuration$/netstandard1.1/CloudMQTT.Client.pdb" target="lib/netstandard1.1" />
+    <file src="bin/$configuration$/net46/CloudMQTT.Client.dll" target="lib\net46" />
+    <file src="bin/$configuration$/net46/CloudMQTT.Client.pdb" target="lib\net46" />
+    <file src="bin/$configuration$/netstandard1.1/CloudMQTT.Client.dll" target="lib\netstandard1.1" />
+    <file src="bin/$configuration$/netstandard1.1/CloudMQTT.Client.pdb" target="lib\netstandard1.1" />
   </files>
-  <dependencies>
-    <dependency id="RestEase" version="1.4.1" />
-  </dependencies>
 </package>
