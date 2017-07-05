@@ -4,5 +4,11 @@ namespace CloudMQTT.Client
     {
         public string Username { get; set; }
         public string Topic { get; set; }
+
+        public static implicit operator RuleReference(Rule rule) => new RuleReference()
+        {
+            Topic = rule.Topic,
+            Username = rule.Username,
+        };
     }
 }
