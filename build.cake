@@ -41,10 +41,9 @@ Task("GetVersion")
         var prereleaseTag = Regex.Replace(branch, @"\W+", "-");
         var describe = GitDescribe(repositoryPath, GitDescribeStrategy.Tags);
 
-        var isMaster = prereleaseTag == "master";
+        var isMaster = prereleaseTag == "master" || prereleaseTag == "-no-branch-";
         version = string.Join(".", describe.Split(new[] { '-' }, 3).Take(2));
         semVersion = version + (isMaster ? "" : $"-{prereleaseTag}");
-        TeamCity.SetBuildNumber(semVersion);
     });
 
 Task("AssignVersion")

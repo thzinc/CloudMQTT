@@ -15,3 +15,5 @@ deploy:
   provider: script
   script:
     - ./build.sh -t Publish
+  on:
+    branch: master
