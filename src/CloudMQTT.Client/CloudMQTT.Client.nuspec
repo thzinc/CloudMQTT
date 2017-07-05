@@ -21,9 +21,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin/$configuration$/net46/CloudMQTT.Client.dll" target="lib\net46" />
-    <file src="bin/$configuration$/net46/CloudMQTT.Client.pdb" target="lib\net46" />
-    <file src="bin/$configuration$/netstandard1.1/CloudMQTT.Client.dll" target="lib\netstandard1.1" />
-    <file src="bin/$configuration$/netstandard1.1/CloudMQTT.Client.pdb" target="lib\netstandard1.1" />
+    <file src="bin\$configuration$\net46\CloudMQTT.Client.dll" target="lib\net46" />
+    <file src="bin\$configuration$\net46\CloudMQTT.Client.pdb" target="lib\net46" />
+    <file src="bin\$configuration$\netstandard1.1\CloudMQTT.Client.dll" target="lib\netstandard1.1" />
+    <file src="bin\$configuration$\netstandard1.1\CloudMQTT.Client.pdb" target="lib\netstandard1.1" />
   </files>
 </package>
