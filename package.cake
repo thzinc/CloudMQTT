@@ -32,7 +32,6 @@ Task("PublishNuget")
     .IsDependentOn("PackageNuget")
     .Does(() =>
     {
-        var assemblyInfo = ParseAssemblyInfo(File("./src/CloudMQTT.Client/AssemblyInfo.cs"));
         var package = GetFiles($"{outputDirectory}/*.nupkg").Single();
 
         NuGetPush(package, new NuGetPushSettings
