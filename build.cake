@@ -1,7 +1,6 @@
 #addin nuget:?package=Cake.Git
 #addin "Cake.Docker"
 #load "container.cake"
-#load "package.cake"
 
 void RunTargetInContainer(string target, string arguments, params string[] includeEnvironmentVariables) {
     var cwd = MakeAbsolute(Directory("./"));
@@ -65,9 +64,22 @@ Task("Build")
     .IsDependentOn("AssignVersion")
     .Does(() => RunTargetInContainer("ContainerBuild", "--verbosity Diagnostic"));
 
+Task("Package")
+    .Does(() => RunTargetInContainer("PackageNuget", "--verbosity Diagnostic"));
+
 Task("Publish")
-    .IsDependentOn("Build")
-    .IsDependentOn("PublishNuget");
+    .IsDependentOn("Package")
+    .Does(() =>
+    {
+        var packageDir = Directory("packages");
+        var package = GetFiles($"{packageDir}/*.nupkg").Single();
+
+        NuGetPush(package, new NuGetPushSettings
+        {
+            Source = "https://www.nuget.org/api/v2/package",
+            ApiKey = EnvironmentVariable("NUGET_API_KEY"),
+        });
+    });
 
 Task("Default").IsDependentOn("Build");
 RunTarget(Argument("target", "Build"));

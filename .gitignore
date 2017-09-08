@@ -1,5 +1,6 @@
 bin
 obj
 tools
+tools-container
 src/CloudMQTT.Client/AssemblyInfo.cs
 packages
