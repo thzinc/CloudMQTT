@@ -1,3 +1,4 @@
+#addin nuget:?package=Cake.Git
 #addin "Cake.Docker"
 #load "container.cake"
 #load "package.cake"
