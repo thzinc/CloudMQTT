@@ -14,18 +14,16 @@ Task("PackageNuget")
     .Does(() =>
     {
         var assemblyInfo = ParseAssemblyInfo(File("./src/CloudMQTT.Client/AssemblyInfo.cs"));
+        var versionInfo = assemblyInfo.AssemblyInformationalVersion;
 
-        var packageSettings = new NuGetPackSettings
+        var packageSettings = new DotNetCorePackSettings
         {
-            Version = assemblyInfo.AssemblyInformationalVersion,
-            Properties = new Dictionary<string, string> 
-            {
-                { "configuration", configuration }
-            },
+            Configuration =  configuration,
             OutputDirectory = outputDirectory,
+            ArgumentCustomization = args => args.Append($"/p:Version={versionInfo}")
         };
 
-        NuGetPack(File("./src/CloudMQTT.Client/CloudMQTT.Client.nuspec"), packageSettings);
+        DotNetCorePack(File("./src/CloudMQTT.Client/CloudMQTT.Client.csproj"), packageSettings);
     });
 
 Task("PublishNuget")

@@ -1,13 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.1;net46</TargetFrameworks>
+    <TargetFramework>netstandard1.1</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Authors>Daniel James</Authors>
+    <PackageLicenseUrl>https://github.com/thzinc/CloudMQTT/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/thzinc/CloudMQTT</PackageProjectUrl>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net46'">
+  <ItemGroup>
     <PackageReference Include="RestEase" Version="1.4.1" />
-    <PackageReference Include="System.Net.Http" Version="4.3.2" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.1'">
-    <PackageReference Include="RestEase" Version="*" />
   </ItemGroup>
 </Project>

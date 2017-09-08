@@ -4,6 +4,7 @@ os: linux # Ubuntu 14.04
 dist: trusty
 group: edge
 sudo: required
+dotnet: 2.0.0
 
 services:
   - docker

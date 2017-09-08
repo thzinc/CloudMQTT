@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp1.1;net46</TargetFrameworks>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
@@ -11,12 +11,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloudMQTT.Client\CloudMQTT.Client.csproj" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net46'">
-    <PackageReference Include="RestEase" Version="1.4.1" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.1'">
-    <PackageReference Include="RestEase" Version="*" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
