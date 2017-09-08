@@ -33,8 +33,25 @@ Task("Compile")
         }
     });
 
-Task("Test")
+Task("ResolvePermissions")
     .IsDependentOn("Compile")
+    .Does(() => {
+        var chmodSettings = new ProcessSettings
+        {
+            Arguments = $"-c 'chmod -R 777 ./src'",
+        };
+
+        using(var process = StartAndReturnProcess("bash", chmodSettings))
+        {
+            process.WaitForExit();
+            var exitCode = process.GetExitCode();
+            if(exitCode != 0)
+                throw new Exception("Resolve permissions failed.");
+        }
+    });
+
+Task("Test")
+    .IsDependentOn("ResolvePermissions")
     .Does(() => 
     {
         Warning("Tests disabled because Mono's System.Net.Http isn't fully baked");
