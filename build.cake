@@ -24,7 +24,7 @@ void RunTargetInContainer(string target, string arguments, params string[] inclu
 
     Information(string.Join(Environment.NewLine, settings.Env));
 
-    var command = $"{settings.Workdir}/build.sh -t {target} {arguments}";
+    var command = $"cake -t {target} {arguments}";
     Information(command);
     var buildBoxImage = "syncromatics/build-box";
     DockerPull(buildBoxImage);
