@@ -75,7 +75,7 @@ Task("CleanPackages")
 
 Task("PackageNuget")
     .IsDependentOn("CleanPackages")
-    .IsDependentOn("GetVersion")
+    .IsDependentOn("AssignVersion")
     .IsDependentOn("ContainerBuild")
     .Does(() =>
     {
