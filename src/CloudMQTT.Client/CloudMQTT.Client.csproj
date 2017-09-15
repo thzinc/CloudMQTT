@@ -7,6 +7,6 @@
     <PackageProjectUrl>https://github.com/thzinc/CloudMQTT</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="RestEase" Version="1.4.1" />
+    <PackageReference Include="RestEase" Version="1.4.3" />
   </ItemGroup>
 </Project>
