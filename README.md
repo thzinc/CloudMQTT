@@ -23,18 +23,19 @@ var users = await _subject.GetUsers(); // Gets a list of MQTT users for the inst
 [![NuGet](https://img.shields.io/nuget/v/CloudMQTT.Client.svg)](https://www.nuget.org/packages/CloudMQTT.Client/)
 [![NuGet Pre Release](https://img.shields.io/nuget/vpre/CloudMQTT.Client.svg)](https://www.nuget.org/packages/CloudMQTT.Client/)
 
-This project uses Cake and Docker to build the client.
+Ensure you have [installed .NET Core](https://www.microsoft.com/net/core)
 
-On macOS or Linux:
+To build a local/development copy, run the following:
 
 ```bash
-./build.sh
+dotnet restore
+dotnet build
 ```
 
-On Windows:
+To run the tests, you'll need a CloudMQTT instance's username and password. If you don't have an instance, you can [sign up for free](https://www.cloudmqtt.com/plans.html). Note, the username and password are usually randomly-generated. (i.e., not the same as the credentials you log in to the CloudMQTT site with.)
 
-```powershell
-.\build.ps1 -Experimental
+```bash
+CLOUDMQTT_USER=ajeamalr CLOUDMQTT_PASSWORD=uwjamd3k_uma dotnet test
 ```
 
 ## Code of Conduct

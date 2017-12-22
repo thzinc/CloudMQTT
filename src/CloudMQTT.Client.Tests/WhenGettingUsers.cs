@@ -8,21 +8,24 @@ using FluentAssertions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using RestEase;
-using Xunit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CloudMQTT.Client.Tests
 {
+    [TestClass]
     public class WhenGettingUsers
     {
-        private readonly ICloudMqttApi _subject;
-        public WhenGettingUsers()
+        private ICloudMqttApi _subject;
+
+        [TestInitialize]
+        public void SetUp()
         {
             var username = Environment.GetEnvironmentVariable("CLOUDMQTT_USER");
             var password = Environment.GetEnvironmentVariable("CLOUDMQTT_PASSWORD");
             _subject = CloudMqttApi.GetInstance(username, password);
         }
 
-        [Fact]
+        [TestMethod]
         public async Task ItShouldCreateAndDeleteUserSuccessfully()
         {
             var expectedUser = new NewUser

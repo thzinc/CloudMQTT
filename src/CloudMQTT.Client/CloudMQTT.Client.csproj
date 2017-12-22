@@ -1,10 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Authors>Daniel James</Authors>
+    <Copyright>2017 Daniel James</Copyright>
+    <PackageId>CloudMQTT.Client</PackageId>
+    <Description>Simple client to interact with the CloudMQTT management HTTP API</Description>
     <PackageLicenseUrl>https://github.com/thzinc/CloudMQTT/blob/master/LICENSE.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/thzinc/CloudMQTT</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/thzinc/CloudMQTT</RepositoryUrl>
+    <PackageTags>c#,csharp,cloudmqtt,client</PackageTags>
+    <Version>0.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="RestEase" Version="1.4.3" />

@@ -1,20 +1,15 @@
 language: csharp
 
-os: linux # Ubuntu 14.04
+os: linux
 dist: trusty
-group: edge
 sudo: required
 dotnet: 2.0.0
 
-services:
-  - docker
-
 script:
-  - ./build.sh
-
-deploy:
-  provider: script
-  script:
-    - ./build.sh -t Publish
-  on:
-    branch: master
+  - dotnet restore
+  - dotnet build --configuration Release
+  - dotnet test src/CloudMQTT.Client.Tests
+  - "if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_TAG ]]; then 
+  dotnet pack src/CloudMQTT.Client --configuration Release /p:Version=$TRAVIS_TAG;
+  dotnet nuget push src/CloudMQTT.Client/bin/Release/*.nupkg -s https://www.nuget.org/api/v2/package -k $NUGET_API_KEY;
+  fi"
