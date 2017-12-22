@@ -1,14 +1,19 @@
+using Newtonsoft.Json;
+
 namespace CloudMQTT.Client
 {
     public class RuleReference
     {
-        public string Username { get; set; }
-        public string Topic { get; set; }
+        [JsonProperty("type")]
+        public RuleType RuleType { get; set; }
+        public string User { get; set; }
+        public string Pattern { get; set; }
 
         public static implicit operator RuleReference(Rule rule) => new RuleReference()
         {
-            Topic = rule.Topic,
-            Username = rule.Username,
+            RuleType = rule.RuleType,
+            Pattern = rule.Pattern,
+            User = rule.User,
         };
     }
 }

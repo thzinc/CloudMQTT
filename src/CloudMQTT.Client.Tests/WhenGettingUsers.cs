@@ -33,9 +33,10 @@ namespace CloudMQTT.Client.Tests
 
             var expectedRule = new Rule
             {
+                RuleType = RuleType.Topic,
                 Read = true,
-                Topic = "test",
-                Username = expectedUser.Username,
+                Pattern = "test",
+                User = expectedUser.Username,
                 Write = true,
             };
 

@@ -25,7 +25,7 @@ namespace CloudMQTT.Client
         Task<HttpResponseMessage> DeleteUser([Path]string username);
 
         [Get("acl")]
-        Task<List<Rule>> GetRules();
+        Task<RulesResponse> GetRules();
 
         [Post("acl")]
         [Header("Content-Type", "application/json")]

@@ -4,14 +4,16 @@
 
 void RunTargetInContainer(string target, string arguments, params string[] includeEnvironmentVariables) {
     var cwd = MakeAbsolute(Directory("./"));
-    var env = includeEnvironmentVariables.ToDictionary(key => key, key => EnvironmentVariable(key));
+    var env = includeEnvironmentVariables
+        .Select(key => new { Key = key, Value = EnvironmentVariable(key) })
+        .ToArray();
 
     var missingEnv = env.Where(x => string.IsNullOrEmpty(x.Value)).ToList();
     if (missingEnv.Any()) {
         throw new Exception($"The following environment variables are required to be set: {string.Join(", ", missingEnv.Select(x => x.Key))}");
     }
 
-    var settings = new DockerRunSettings
+    var settings = new DockerContainerRunSettings
     {
         Volume = new string[] { $"{cwd}:/artifacts"},
         Workdir = "/artifacts",
