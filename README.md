@@ -14,7 +14,7 @@ Then use it to do a thing:
 
 ```csharp
 var client = CloudMqttApi.GetInstance("username", "password");
-var users = await _subject.GetUsers(); // Gets a list of MQTT users for the instance
+var users = await client.GetUsers(); // Gets a list of MQTT users for the instance
 ```
 
 ## Building
